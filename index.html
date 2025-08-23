@@ -1,6 +1,220 @@
 
+ <!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <script>
+      document.addEventListener("contextmenu", (event) => event.preventDefault());
+      document.addEventListener("keydown", (event) => {
+        if (
+          (event.ctrlKey &&
+            ["u", "s", "i", "j"].includes(event.key.toLowerCase())) ||
+          event.key === "F12"
+        ) {
+          event.preventDefault();
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BRAINIAC ACADEMICS</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap");
+      * {
+        font-family: "Hind Siliguri", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        background-color: white;
+        color: #1b0b54;
+        position: relative;
+      }
+      .heading {
+        width: 100%;
+        background-color: #1b0b54;
+        color: white;
+        text-align: center;
+        padding: 5px 0;
+        position: absolute;
+        top: 0;
+        z-index: 900;
+      }
+      .heading h1 {
+        font-size: 36px;
+        font-weight: bold;
+      }
+      .button-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 400px;
+        width: 90%;
+        margin-top: 100px;
+        margin-bottom: 20px;
+      }
+      .button-box {
+        aspect-ratio: 1/1;
+        background-color: #1b0b54;
+        color: white;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 10px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, background-color 0.3s;
+      }
+      .button-box:hover {
+        transform: scale(1.05);
+        background-color: #0a0633;
+      }
+      .green-button-box {
+        background-color: #4caf50;
+      }
+      .green-button-box:hover {
+        background-color: #388e3c;
+      }
+      /* Modal Styles for Login Popup */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        width: 300px;
+        position: relative;
+      }
+      .close-button {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        cursor: pointer;
+      }
+      .close-button:hover,
+      .close-button:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .modal-content h1 {
+        color: #1b0b54;
+        margin-bottom: 10px;
+      }
+      .modal-content input {
+        font-family: "Hind Siliguri", sans-serif;
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .modal-content button {
+        font-family: "Hind Siliguri", sans-serif;
+        padding: 15px 30px;
+        background-color: #1b0b54;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-top: 20px;
+        width: 50%;
+        transition: background-color 0.3s ease;
+        text-align: center;
+      }
+      .modal-content button:hover {
+        background-color: #0a0633;
+      }
+      .forgot-register {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+      }
+      .forgot-register a {
+        color: #1b0b54;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .forgot-register a:hover {
+        text-decoration: underline;
+      }
+      .error {
+        color: #ff0800;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heading">
+      <h1>মেডিকিউ ফিচার্স</h1>
+    </div>
+
+    <div class="button-grid" id="buttonGrid">
       <a
-        
+        href="#"
+        class="button-box"
+        onclick="showLogin('https://medicalprostuti.github.io/subject/')"
+        >অনুশীলন</a
+      >
+      <a
+        href="https://medicalprostuti.github.io/demoonushilon/"
+        class="button-box green-button-box"
+        >ফ্রি ডেমো</a
+      >
+      <a
+        href="#"
+        class="button-box"
+        onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
+        >মক এক্স্যাম</a
+      >
+      <a
+        href="#"
+        class="button-box"
+        onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
+        >ডেইলি এক্স্যাম</a
+      >
+      <a
+        href="#"
+        class="button-box"
+        onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
+        >মেগা এক্স্যাম</a
+      >
+      <a href="https://medicalprostuti.github.io/Soon/" class="button-box"
+        >লিডার বোর্ড</a
+      >
+      <a
+        href="https://medicalprostuti.github.io/Soon/"
+        class="button-box green-button-box"
+        >প্রশ্ন ব্যাংক</a
       >
       <a
         href="https://medicalprostuti.github.io/Soon/"
@@ -26,11 +240,30 @@
           id="password"
           placeholder="সিরিয়াল নাম্বার"
           required
-        /
+        />
         <button id="loginBtn" onclick="validateLogin()">শুরু করো</button>
         <div class="forgot-register">
-          <a href="#" class="forgot-link">রোল 
-        document.getElementById("loginModal").sty.display = "flex";
+          <a href="#" class="forgot-link">রোল ভুলে গেছো</a> |
+          <a
+            href="https://medicalprostuti.github.io/registration/"
+            class="register-link"
+            >রেজিস্ট্রেশন করো</a
+          >
+        </div>
+        <p class="error" id="errorMessage"></p>
+      </div>
+    </div>
+
+    <script>
+      let destinationURL = "";
+      const predefinedUsers = [
+        { roll: "12345", serial: "67890" },
+        { roll: "user2", serial: "pass2" },
+      ];
+
+      function showLogin(url) {
+        destinationURL = url;
+        document.getElementById("loginModal").style.display = "flex";
         document.getElementById("errorMessage").innerText = "";
       }
 
@@ -43,27 +276,52 @@
         const password = document.getElementById("password").value.trim();
         const errorMessage = document.getElementById("errorMessage");
         const loginBtn = document.getElementById("loginBtn");
-x
+
         if (!userID || !password) {
-          errorMessage.innerText =
-            "রোল নাম্বার এবং সিরিয়াল নাম্বার পূরণ করুন!";
+          errorMessage.innerText = "রোল নাম্বার এবং সিরিয়াল নাম্বার পূরণ করুন!";
           return;
         }
 
-        // Show loading state and change text
-        loginBtn.innerText = " ওয়েট...";
+        loginBtn.innerText = " ওয়েট...";
         loginBtn.disabled = true;
         errorMessage.innerText = "";
 
-        // *** REPLACE WITH YOUR GOOGLE APPS SCRIPT URL ***
+        const defaultRedirect = "https://medicalprostuti.github.io/subject/";
+
+        // Step 1: Check the predefined list first
+        const foundUser = predefinedUsers.find(
+          (user) => user.roll === userID && user.serial === password
+        );
+
+        if (foundUser) {
+          // Credentials found in the local list
+          sessionStorage.setItem("isLoggedIn", "true");
+          sessionStorage.setItem("userID", userID);
+          window.location.href = destinationURL || defaultRedirect;
+          // Restore button state after successful login
+          loginBtn.innerText = "শুরু করো";
+          loginBtn.disabled = false;
+          return;
+        }
+
+        // Step 2: If not found, proceed with the Google Apps Script authentication
         const scriptURL = `https://script.google.com/macros/s/AKfycbwE8rNk8nY7nAAGjRKUYWo1DhKh6jbdLnCVcRrDrpv7ZzCZMJqXTqXghcDjPIngsCFD/exec?roll=${userID}&serial=${password}`;
 
-        t
+        try {
+          const response = await fetch(scriptURL);
+          const result = await response.json();
 
-ry {
-           = "Login failed. Please try again.";
+          if (result.status === "success") {
+            sessionStorage.setItem("isLoggedIn", "true");
+            sessionStorage.setItem("userID", userID);
+            window.location.href = destinationURL || defaultRedirect;
+          } else {
+            errorMessage.innerText = "ভুল রোল নাম্বার বা সিরিয়াল নাম্বার!";
+          }
+        } catch (error) {
+          console.error("Error during login validation:", error);
+          errorMessage.innerText = "Login failed. Please try again.";
         } finally {
-          // Restore button
           loginBtn.innerText = "শুরু করো";
           loginBtn.disabled = false;
         }
