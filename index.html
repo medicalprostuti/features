@@ -16,10 +16,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BRAINIAC ACADEMICS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap");
+      :root {
+        --primary-color: #1b0b54;
+        --secondary-color: #4a2d82;
+        --accent-color: #00aaff;
+        --green-color: #4CAF50; /* Brighter green */
+        --green-hover-color: #4CAF50; /* Brighter green hover */
+      }
       * {
-        font-family: "Hind Siliguri", sans-serif;
+        font-family: 'Hind Siliguri', sans-serif;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -29,59 +41,94 @@
         flex-direction: column;
         align-items: center;
         min-height: 100vh;
-        background-color: white;
-        color: #1b0b54;
+        background-color: #ffffff; /* Pure white background */
+        color: var(--primary-color);
         position: relative;
+        overflow-x: hidden;
       }
       .heading {
         width: 100%;
-        background-color: #1b0b54;
+        background-color: var(--primary-color);
         color: white;
         text-align: center;
-        padding: 5px 0;
-        position: absolute;
+        padding: 15px 0;
+        position: sticky;
         top: 0;
         z-index: 900;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        animation: slideInDown 1s ease-out;
+      }
+      @keyframes slideInDown {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
       }
       .heading h1 {
-        font-size: 36px;
-        font-weight: bold;
+        font-size: clamp(24px, 6vw, 36px);
+        font-weight: 700;
+        letter-spacing: 1px;
       }
       .button-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        max-width: 400px;
+        gap: 25px;
+        max-width: 500px;
         width: 90%;
-        margin-top: 100px;
-        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        padding: 10px;
       }
       .button-box {
         aspect-ratio: 1/1;
-        background-color: #1b0b54;
+        background: var(--primary-color);
         color: white;
         text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 24px;
-        font-weight: bold;
+        font-size: clamp(18px, 5vw, 24px);
+        font-weight: 600;
         text-decoration: none;
-        border-radius: 10px;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s, background-color 0.3s;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        animation: popIn 0.5s ease-out forwards;
+      }
+      .button-box:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .button-box:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .button-box:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      @keyframes popIn {
+        from {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
       }
       .button-box:hover {
         transform: scale(1.05);
-        background-color: #0a0633;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        background: var(--secondary-color);
       }
       .green-button-box {
-        background-color: #4caf50;
+        background: var(--green-color); /* Applied brighter green */
+        color: white;
       }
       .green-button-box:hover {
-        background-color: #388e3c;
+        background: var(--green-hover-color); /* Applied brighter green hover */
       }
-      /* Modal Styles for Login Popup */
       .modal {
         display: none;
         position: fixed;
@@ -94,81 +141,114 @@
         background-color: rgba(0, 0, 0, 0.6);
         justify-content: center;
         align-items: center;
+        animation: fadeIn 0.3s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
       .modal-content {
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         text-align: center;
-        width: 300px;
+        width: 90%;
+        max-width: 400px;
         position: relative;
+        animation: popUp 0.4s ease-out;
+      }
+      @keyframes popUp {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
       }
       .close-button {
         color: #aaa;
-        float: right;
-        font-size: 28px;
+        font-size: 35px;
         font-weight: bold;
         position: absolute;
         top: 10px;
         right: 15px;
         cursor: pointer;
+        transition: color 0.3s ease;
       }
       .close-button:hover,
       .close-button:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
+        color: var(--primary-color);
       }
       .modal-content h1 {
-        color: #1b0b54;
-        margin-bottom: 10px;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-size: 28px;
       }
       .modal-content input {
-        font-family: "Hind Siliguri", sans-serif;
-        width: 80%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+        width: 100%;
+        padding: 12px;
+        margin: 12px 0;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+      }
+      .modal-content input:focus {
+        outline: none;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
       }
       .modal-content button {
-        font-family: "Hind Siliguri", sans-serif;
-        padding: 15px 30px;
-        background-color: #1b0b54;
+        width: 70%;
+        padding: 15px;
+        background: var(--primary-color);
         color: white;
         border: none;
         cursor: pointer;
         font-size: 18px;
-        font-weight: bold;
-        border-radius: 5px;
-        margin-top: 20px;
-        width: 50%;
-        transition: background-color 0.3s ease;
-        text-align: center;
+        font-weight: 600;
+        border-radius: 50px;
+        margin-top: 25px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       }
       .modal-content button:hover {
-        background-color: #0a0633;
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
       }
       .forgot-register {
         margin-top: 15px;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 15px;
         font-size: 14px;
       }
       .forgot-register a {
-        color: #1b0b54;
+        color: var(--primary-color);
         font-weight: bold;
         text-decoration: none;
+        transition: color 0.3s ease;
       }
       .forgot-register a:hover {
+        color: var(--accent-color);
         text-decoration: underline;
       }
       .error {
-        color: #ff0800;
-        margin-top: 10px;
+        color: #dc3545;
+        margin-top: 15px;
+        font-weight: 500;
       }
     </style>
   </head>
@@ -176,7 +256,6 @@
     <div class="heading">
       <h1>মেডিকিউ ফিচার্স</h1>
     </div>
-
     <div class="button-grid" id="buttonGrid">
       <a
         href="#"
@@ -224,7 +303,9 @@
       <a href="https://medicalprostuti.github.io/Card/" class="button-box"
         >প্রোগ্রেস কার্ড</a
       >
-      <a href="https://medicalprostuti.github.io/Routine/" class="button-box">রুটিন</a>
+      <a href="https://medicalprostuti.github.io/Routine/" class="button-box"
+        >রুটিন</a
+      >
       <a href="#" class="button-box">যোগাযোগ</a>
       <a href="#" class="button-box">আমাদের সম্পর্কে</a>
     </div>
@@ -232,7 +313,7 @@
     <div id="loginModal" class="modal">
       <div class="modal-content">
         <span class="close-button" onclick="closeLogin()">&times;</span>
-        <h1 style="color: #1b0b54">তথ্য দাও</h1>
+        <h1>তথ্য দাও</h1>
         <input type="text" id="userID" placeholder="রোল নাম্বার" required />
         <input
           type="text"
@@ -242,10 +323,9 @@
         />
         <button id="loginBtn" onclick="validateLogin()">শুরু করো</button>
         <div class="forgot-register">
-          <a href="#" class="forgot-link">রোল ভুলে গেছো</a> |
-          <a
-            href="https://medicalprostuti.github.io/registration/"
-            class="register-link"
+          <a href="#">রোল ভুলে গেছো</a>
+          <span style="color: #666">|</span>
+          <a href="https://medicalprostuti.github.io/registration/"
             >রেজিস্ট্রেশন করো</a
           >
         </div>
@@ -259,57 +339,42 @@
         { roll: "12345", serial: "67890" },
         { roll: "user2", serial: "pass2" },
       ];
-
       function showLogin(url) {
         destinationURL = url;
         document.getElementById("loginModal").style.display = "flex";
         document.getElementById("errorMessage").innerText = "";
       }
-
       function closeLogin() {
         document.getElementById("loginModal").style.display = "none";
       }
-
       async function validateLogin() {
         const userID = document.getElementById("userID").value.trim();
         const password = document.getElementById("password").value.trim();
         const errorMessage = document.getElementById("errorMessage");
         const loginBtn = document.getElementById("loginBtn");
-
         if (!userID || !password) {
           errorMessage.innerText = "রোল নাম্বার এবং সিরিয়াল নাম্বার পূরণ করুন!";
           return;
         }
-
         loginBtn.innerText = " ওয়েট...";
         loginBtn.disabled = true;
         errorMessage.innerText = "";
-
         const defaultRedirect = "https://medicalprostuti.github.io/subject/";
-
-        // Step 1: Check the predefined list first
         const foundUser = predefinedUsers.find(
           (user) => user.roll === userID && user.serial === password
         );
-
         if (foundUser) {
-          // Credentials found in the local list
           sessionStorage.setItem("isLoggedIn", "true");
           sessionStorage.setItem("userID", userID);
           window.location.href = destinationURL || defaultRedirect;
-          // Restore button state after successful login
           loginBtn.innerText = "শুরু করো";
           loginBtn.disabled = false;
           return;
         }
-
-        // Step 2: If not found, proceed with the Google Apps Script authentication
         const scriptURL = `https://script.google.com/macros/s/AKfycbwE8rNk8nY7nAAGjRKUYWo1DhKh6jbdLnCVcRrDrpv7ZzCZMJqXTqXghcDjPIngsCFD/exec?roll=${userID}&serial=${password}`;
-
         try {
           const response = await fetch(scriptURL);
           const result = await response.json();
-
           if (result.status === "success") {
             sessionStorage.setItem("isLoggedIn", "true");
             sessionStorage.setItem("userID", userID);
