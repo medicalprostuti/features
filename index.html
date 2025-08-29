@@ -2,22 +2,16 @@
 <html lang="bn">
   <head>
     <script>
-      // Disables various developer tools and right-click
       document.addEventListener("contextmenu", (event) => event.preventDefault());
       document.addEventListener("keydown", (event) => {
         if (
-          (event.ctrlKey && ["u", "s", "i", "j"].includes(event.key.toLowerCase())) ||
+          (event.ctrlKey &&
+            ["u", "s", "i", "j"].includes(event.key.toLowerCase())) ||
           event.key === "F12"
         ) {
           event.preventDefault();
         }
       });
-      // Additional security for mobile long press
-      document.addEventListener('touchstart', function(event) {
-        if (event.target.tagName === 'A' || event.target.closest('a')) {
-          event.preventDefault();
-        }
-      }, { passive: false });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,7 +27,7 @@
         --primary-color: #1b0b54;
         --secondary-color: #4a2d82;
         --accent-color: #00aaff;
-        --green-color: #4CAF50;
+        --green-color: #4caf50;
         --green-hover-color: #388e3c;
       }
       * {
@@ -246,7 +240,7 @@
         font-size: 18px;
         font-weight: 600;
         border-radius: 50px;
-        margin-top: 25px;
+        margin-top: 15px; /* Updated value */
         transition: all 0.3s ease;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       }
@@ -289,55 +283,72 @@
         href="#"
         class="button-box"
         onclick="showLogin('https://medicalprostuti.github.io/subject/')"
+        oncontextmenu="return false;"
         >অনুশীলন</a
       >
       <a
         href="https://medicalprostuti.github.io/demoonushilon/"
         class="button-box green-button-box"
+        oncontextmenu="return false;"
         >ফ্রি ডেমো</a
       >
       <a
         href="#"
         class="button-box"
         onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
+        oncontextmenu="return false;"
         >মক এক্স্যাম</a
       >
       <a
         href="#"
         class="button-box"
         onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
+        oncontextmenu="return false;"
         >ডেইলি এক্স্যাম</a
       >
       <a
         href="#"
         class="button-box"
         onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
+        oncontextmenu="return false;"
         >মেগা এক্স্যাম</a
       >
-      <a href="https://medicalprostuti.github.io/Soon/" class="button-box"
+      <a
+        href="https://medicalprostuti.github.io/Soon/"
+        class="button-box"
+        oncontextmenu="return false;"
         >লিডার বোর্ড</a
       >
       <a
         href="https://medicalprostuti.io/Soon/"
         class="button-box green-button-box"
+        oncontextmenu="return false;"
         >প্রশ্ন ব্যাংক</a
       >
       <a
         href="#"
         class="button-box"
         onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
+        oncontextmenu="return false;"
         >ম্যাটারিয়ালস</a
       >
-      <a href="https://medicalprostuti.io/Card/" class="button-box"
+      <a
+        href="https://medicalprostuti.io/Card/"
+        class="button-box"
+        oncontextmenu="return false;"
         >প্রোগ্রেস কার্ড</a
       >
-      <a href="https://medicalprostuti.github.io/Routine/" class="button-box"
+      <a
+        href="https://medicalprostuti.github.io/Routine/"
+        class="button-box"
+        oncontextmenu="return false;"
         >রুটিন</a
       >
-      <a href="#" class="button-box">যোগাযোগ</a>
-      <a href="#" class="button-box">আমাদের সম্পর্কে</a>
+      <a href="#" class="button-box" oncontextmenu="return false;">যোগাযোগ</a>
+      <a href="#" class="button-box" oncontextmenu="return false;"
+        >আমাদের সম্পর্কে</a
+      >
     </div>
-
     <div id="loginModal" class="modal">
       <div class="modal-content">
         <span class="close-button" onclick="closeLogin()">&times;</span>
@@ -360,7 +371,6 @@
         <p class="error" id="errorMessage"></p>
       </div>
     </div>
-
     <script>
       let destinationURL = "";
       const predefinedUsers = [
