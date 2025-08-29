@@ -35,6 +35,10 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+      a:focus {
+        outline: none;
       }
       body {
         display: flex;
@@ -240,7 +244,7 @@
         font-size: 18px;
         font-weight: 600;
         border-radius: 50px;
-        margin-top: 15px; /* Updated value */
+        margin-top: 15px;
         transition: all 0.3s ease;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       }
@@ -265,7 +269,12 @@
       }
       .forgot-register a:hover {
         color: var(--accent-color);
-        text-decoration: underline;
+        text-decoration: none; /* Changed this line */
+      }
+      /* This new rule targets the a:active state to prevent the blue highlight/underline on click */
+      .forgot-register a:active {
+        color: var(--primary-color); /* Keeps the color the same as normal state */
+        text-decoration: none; /* Ensures no underline on click */
       }
       .error {
         color: #dc3545;
@@ -284,12 +293,14 @@
         class="button-box"
         onclick="showLogin('https://medicalprostuti.github.io/subject/')"
         oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >অনুশীলন</a
       >
       <a
         href="https://medicalprostuti.github.io/demoonushilon/"
         class="button-box green-button-box"
         oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >ফ্রি ডেমো</a
       >
       <a
@@ -297,6 +308,7 @@
         class="button-box"
         onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
         oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >মক এক্স্যাম</a
       >
       <a
@@ -304,6 +316,7 @@
         class="button-box"
         onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
         oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >ডেইলি এক্স্যাম</a
       >
       <a
@@ -311,18 +324,21 @@
         class="button-box"
         onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
         oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >মেগা এক্স্যাম</a
       >
       <a
         href="https://medicalprostuti.github.io/Soon/"
         class="button-box"
         oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >লিডার বোর্ড</a
       >
       <a
         href="https://medicalprostuti.io/Soon/"
         class="button-box green-button-box"
         oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >প্রশ্ন ব্যাংক</a
       >
       <a
@@ -330,22 +346,29 @@
         class="button-box"
         onclick="showLogin('https://medicalprostuti.github.io/Soon/')"
         oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >ম্যাটারিয়ালস</a
       >
       <a
         href="https://medicalprostuti.io/Card/"
         class="button-box"
         oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >প্রোগ্রেস কার্ড</a
       >
       <a
         href="https://medicalprostuti.github.io/Routine/"
         class="button-box"
         oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >রুটিন</a
       >
       <a href="#" class="button-box" oncontextmenu="return false;">যোগাযোগ</a>
-      <a href="#" class="button-box" oncontextmenu="return false;"
+      <a
+        href="#"
+        class="button-box"
+        oncontextmenu="return false;"
+        ontouchstart="this.style.webkit-touch-callout='none';"
         >আমাদের সম্পর্কে</a
       >
     </div>
